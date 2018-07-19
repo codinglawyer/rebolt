@@ -29,7 +29,7 @@ A bit of explanation to what both of the scripts do:
 - `yarn build` - performs a single build
 - `yarn watch` - enters the watch mode
 
-Now, you can start you application by running `yarn run watch` to compile the ReasonML code in one tab of your terminal, and in the other start the React Native app in the simulator using `react-native run-ios`
+Now, you can start your application by running `yarn run watch` to compile the ReasonML code in one tab of your terminal, and in the other start the React Native app in the simulator using `react-native run-ios`
 
 To better understand the integration between Reason and React Native, please see the following section that explains the manual integration step by step.
 
