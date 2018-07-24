@@ -1,11 +1,18 @@
 [@bs.module "react-native"]
 external view : ReasonReact.reactClass = "ActivityIndicator";
 
+[@bs.module "react-native"] [@bs.scope "Platform"]
+external _os : string = "OS";
+
 let encodeSize = size =>
   switch (size) {
   | `small => Encode.string("small")
   | `large => Encode.string("large")
-  | `exact(x) => Encode.int(x)
+  | `exact(x) =>
+    switch (_os) {
+    | "ios" => Encode.string("small")
+    | _ => Encode.int(x)
+    }
   };
 
 let make =
