@@ -42,7 +42,7 @@ let make =
         Js.Undefined.(
           {
             "animating": fromOption(UtilsRN.optBoolToOptJsBoolean(animating)),
-            "color": fromOption(color),
+            "color": color,
             "size": fromOption(UtilsRN.option_map(encodeSize, size)),
             "hidesWhenStopped":
               fromOption(UtilsRN.optBoolToOptJsBoolean(hidesWhenStopped)),
@@ -70,3 +70,4 @@ let make =
         ~shouldRasterizeIOS?,
       ),
   );
+  
