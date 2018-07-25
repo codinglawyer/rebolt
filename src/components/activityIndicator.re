@@ -4,13 +4,19 @@ external view : ReasonReact.reactClass = "ActivityIndicator";
 [@bs.module "react-native"] [@bs.scope "Platform"]
 external _os : string = "OS";
 
+/* open Js.Console; */
+
 let encodeSize = size =>
   switch (size) {
   | `small => Encode.string("small")
   | `large => Encode.string("large")
   | `exact(x) =>
     switch (_os) {
-    | "ios" => Encode.string("small")
+    | "ios" =>
+      Js.Console.warn(
+        "Passing 'exact' to the size prop of activityIndicator is supported only on Android, on iOS it defaults to a 'small' size",
+      );
+      Encode.string("small");
     | _ => Encode.int(x)
     }
   };
@@ -77,4 +83,3 @@ let make =
         ~shouldRasterizeIOS?,
       ),
   );
-  
