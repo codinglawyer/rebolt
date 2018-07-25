@@ -4,8 +4,6 @@ external view : ReasonReact.reactClass = "ActivityIndicator";
 [@bs.module "react-native"] [@bs.scope "Platform"]
 external _os : string = "OS";
 
-/* open Js.Console; */
-
 let encodeSize = size =>
   switch (size) {
   | `small => Encode.string("small")
