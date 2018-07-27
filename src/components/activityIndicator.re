@@ -12,7 +12,7 @@ let encodeSize = size =>
     switch (_os) {
     | "ios" =>
       Js.Console.warn(
-        "Passing 'exact' to the size prop of activityIndicator is supported only on Android, on iOS it defaults to a 'small' size",
+        "Passing 'exact' to the size prop of activityIndicator is supported only on Android. Because you only provided the 'exact' size, we defaulted it to the small size on iOS",
       );
       Encode.string("small");
     | _ => Encode.int(x)
