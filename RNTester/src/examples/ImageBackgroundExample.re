@@ -28,7 +28,7 @@ let examples: array(Example.t) =
             )
             imageStyle=(style([flex(1.)]))
             source=(
-              URI(
+              `URI(
                 Image.(
                   imageURISource(
                     ~uri=

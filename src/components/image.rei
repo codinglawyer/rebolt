@@ -31,10 +31,11 @@ module type ImageComponent = {
     ) =>
     _imageURISource;
 
-  type imageSource =
-    | URI(_imageURISource)
-    | Required(Packager.required)
-    | Multiple(list(_imageURISource));
+  type imageSource = [
+    | `URI(_imageURISource)
+    | `Required(Packager.required)
+    | `Multiple(list(_imageURISource))
+  ];
   type _defaultURISource;
   let _defaultURISource:
     (
@@ -57,9 +58,10 @@ module type ImageComponent = {
     ) =>
     _defaultURISource;
 
-  type defaultSource =
-    | URI(_defaultURISource)
-    | Required(Packager.required);
+  type defaultSource = [
+    | `URI(_defaultURISource)
+    | `Required(Packager.required)
+  ];
   module Event: {
     type error;
     type progress = {

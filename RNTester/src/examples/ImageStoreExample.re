@@ -97,7 +97,7 @@ module ImageExample = {
           | Some(imageUri) =>
             <Image
               source=(
-                URI(
+                `URI(
                   Image.imageURISource(
                     ~uri=imageUri,
                     ~width=Pt(200.),

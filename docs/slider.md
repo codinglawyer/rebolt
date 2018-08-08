@@ -74,9 +74,9 @@ _reference:_
 
 ```reason
 type imageSource =
-  | URI(imageURISource)
-  | Required(Packager.required)
-  | Multiple(list(imageURISource));
+  | `URI(imageURISource)
+  | `Required(Packager.required)
+  | `Multiple(list(imageURISource));
 ```
 
 ```reason
@@ -111,9 +111,9 @@ _reference:_
 
 ```reason
 type imageSource =
-  | URI(imageURISource)
-  | Required(Packager.required)
-  | Multiple(list(imageURISource));
+  | `URI(imageURISource)
+  | `Required(Packager.required)
+  | `Multiple(list(imageURISource));
 ```
 
 ```reason
@@ -148,9 +148,9 @@ _reference:_
 
 ```reason
 type imageSource =
-  | URI(imageURISource)
-  | Required(Packager.required)
-  | Multiple(list(imageURISource));
+  | `URI(imageURISource)
+  | `Required(Packager.required)
+  | `Multiple(list(imageURISource));
 ```
 
 ```reason
@@ -185,9 +185,9 @@ _reference:_
 
 ```reason
 type imageSource =
-  | URI(imageURISource)
-  | Required(Packager.required)
-  | Multiple(list(imageURISource));
+  | `URI(imageURISource)
+  | `Required(Packager.required)
+  | `Multiple(list(imageURISource));
 ```
 
 ```reason

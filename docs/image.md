@@ -16,7 +16,7 @@ let make = _children => {
   render: _self =>
     <Image
       source=(
-        URI(
+        `URI(
           Image.(
             imageURISource(
               ~uri="https://bit.ly/2ya4e2o",
@@ -43,7 +43,7 @@ let make = _children => {
   render: _self =>
     <Image
       style=Style.(style([width(Pt(320.)), height(Pt(480.))]))
-      source=(Required(Packager.require("./assets/panamera.png")))
+      source=(`Required(Packager.require("./assets/panamera.png")))
     />,
 };
 ```
@@ -119,9 +119,9 @@ _reference:_
 
 ```reason
 type imageSource =
-  | URI(_imageURISource)
-  | Required(Packager.required)
-  | Multiple(list(_imageURISource));
+  | `URI(_imageURISource)
+  | `Required(Packager.required)
+  | `Multiple(list(_imageURISource));
 ```
 
 ```reason
@@ -236,8 +236,8 @@ _reference:_
 
 ```reason
 type defaultSource =
-  | URI(_defaultURISource)
-  | Required(Packager.required);
+  | `URI(_defaultURISource)
+  | `Required(Packager.required);
 ```
 
 ```reason

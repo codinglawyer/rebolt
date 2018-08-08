@@ -30,10 +30,11 @@ module type ImageComponent = {
       unit
     ) =>
     _imageURISource;
-  type imageSource =
-    | URI(_imageURISource)
-    | Required(Packager.required)
-    | Multiple(list(_imageURISource));
+  type imageSource = [
+    | `URI(_imageURISource)
+    | `Required(Packager.required)
+    | `Multiple(list(_imageURISource))
+  ];
 
   type _defaultURISource;
   let _defaultURISource:
@@ -57,9 +58,10 @@ module type ImageComponent = {
     ) =>
     _defaultURISource;
 
-  type defaultSource =
-    | URI(_defaultURISource)
-    | Required(Packager.required);
+  type defaultSource = [
+    | `URI(_defaultURISource)
+    | `Required(Packager.required)
+  ];
   module Event: {
     type error;
     type progress = {
@@ -153,10 +155,11 @@ module CreateComponent = (Impl: View.Impl) : ImageComponent => {
       unit,
     );
 
-  type imageSource =
-    | URI(_imageURISource)
-    | Required(Packager.required)
-    | Multiple(list(_imageURISource));
+  type imageSource = [
+    | `URI(_imageURISource)
+    | `Required(Packager.required)
+    | `Multiple(list(_imageURISource))
+  ];
 
   type _defaultURISource;
   [@bs.obj]
@@ -181,9 +184,10 @@ module CreateComponent = (Impl: View.Impl) : ImageComponent => {
       unit,
     );
 
-  type defaultSource =
-    | URI(_defaultURISource)
-    | Required(Packager.required);
+  type defaultSource = [
+    | `URI(_defaultURISource)
+    | `Required(Packager.required)
+  ];
   type rawImageSourceJS;
   external rawImageSourceJS : 'a => rawImageSourceJS = "%identity";
   module Event = {
@@ -205,9 +209,9 @@ module CreateComponent = (Impl: View.Impl) : ImageComponent => {
     };
   let encodeSource = (x: imageSource) =>
     switch (x) {
-    | URI(x) => rawImageSourceJS(x)
-    | Required(x) => rawImageSourceJS(x)
-    | Multiple(x) => rawImageSourceJS(Array.of_list(x))
+    | `URI(x) => rawImageSourceJS(x)
+    | `Required(x) => rawImageSourceJS(x)
+    | `Multiple(x) => rawImageSourceJS(Array.of_list(x))
     };
   let encodeResizeMethod = x =>
     switch (x) {
@@ -217,8 +221,8 @@ module CreateComponent = (Impl: View.Impl) : ImageComponent => {
     };
   let encodeDefaultSource = (x: defaultSource) =>
     switch (x) {
-    | URI(x) => rawImageSourceJS(x)
-    | Required(x) => rawImageSourceJS(x)
+    | `URI(x) => rawImageSourceJS(x)
+    | `Required(x) => rawImageSourceJS(x)
     };
   let make =
       (
