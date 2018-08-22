@@ -57,7 +57,10 @@ module ImageStore = MakeExample(ImageStoreExample);
 
 module ActivityIndicator = MakeExample(ActivityIndicatorExample);
 
+module ImageEditor = MakeExample(ImageEditorExample);
+
 let components: array(item) = [|
+  ImageEditor.item("ImageEditorExample"),
   Button.item("ButtonExample"),
   View.item("ViewExample"),
   WebView.item("WebViewExample"),
